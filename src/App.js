@@ -8,7 +8,6 @@ const api = {
 function App() {
   return (
     <div className="App">
-      <h1>weather App</h1>
     </div>
   );
 }
