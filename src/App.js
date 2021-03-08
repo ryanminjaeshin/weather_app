@@ -15,7 +15,10 @@ function App() {
     if (e.key === "Enter") {
       fetch(`${api.base}weather?q=${query}&unites=metric&APPID=${api.key}`)
       .then(res => res.json())
-      .then(result => setWeather(result));
+      .then(result => {
+        setQuery('');
+        setWeather(result)
+      });
     }
   }
 
@@ -39,6 +42,10 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Search..."
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
+
           />
           <div className="location-box">
             <div className="location">New York City, US</div>
